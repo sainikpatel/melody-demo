@@ -30,6 +30,7 @@ import {
 } from "lucide-react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import MelodyLogo from "@/components/common/MelodyLogo";
 
 // ─── data ────────────────────────────────────────────────────────────────────
 const stats = [
@@ -159,9 +160,11 @@ export default function LandingPage() {
             href="/"
             className="flex items-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 rounded-lg p-1"
           >
-            <div className="w-8 h-8 rounded-xl bg-[#2d6a4f] flex items-center justify-center text-white shadow-sm transition-transform duration-200 group-hover:scale-105">
-              <Leaf size={16} className="text-[#74c69d]" />
-            </div>
+            <MelodyLogo
+              size={36}
+              useFaviconImg={true}
+              className="transition-transform duration-200 group-hover:scale-105"
+            />
             <span className="font-display font-black text-2xl tracking-tight text-white">
               Melody<span className="text-[#74c69d]">.</span>
             </span>
@@ -822,10 +825,12 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
             {/* Column 1: Brand */}
             <div className="md:col-span-2">
-              <Link href="/" className="flex items-center gap-2 mb-4">
-                <div className="w-7 h-7 rounded-lg bg-[#2d6a4f] flex items-center justify-center text-white">
-                  <Leaf size={14} className="text-[#74c69d]" />
-                </div>
+              <Link href="/" className="flex items-center gap-2.5 mb-4 group">
+                <MelodyLogo
+                  size={30}
+                  useFaviconImg={true}
+                  className="transition-transform duration-200 group-hover:scale-105"
+                />
                 <span className="font-display font-black text-2xl text-white">
                   Melody<span className="text-[#74c69d]">.</span>
                 </span>

@@ -7,6 +7,14 @@ export const metadata: Metadata = {
   title: "Melody — Farm-to-Consumer Marketplace",
   description:
     "Fresh organic produce directly from verified farms to your doorstep. Zero middlemen, 100% transparent supply chain.",
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "32x32" },
+    ],
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
 };
 
 export default function RootLayout({

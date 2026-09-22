@@ -5,6 +5,7 @@ import { useStore } from "@/context/StoreContext";
 import { ShoppingCart, Search, Menu, X, Leaf } from "lucide-react";
 import { motion, AnimatePresence, useSpring, useMotionValue } from "framer-motion";
 import { useState, useEffect } from "react";
+import MelodyLogo from "@/components/common/MelodyLogo";
 
 export function CustomerNavbar() {
   const { cart } = useStore();
@@ -53,11 +54,13 @@ export function CustomerNavbar() {
           {/* Logo */}
           <Link
             href="/customer"
-            className="flex items-center gap-2 shrink-0 group"
+            className="flex items-center gap-2.5 shrink-0 group"
           >
-            <div className="w-7 h-7 bg-[#2d6a4f] rounded-lg flex items-center justify-center group-hover:bg-[#1b4332] transition-colors duration-200">
-              <Leaf size={14} className="text-white" />
-            </div>
+            <MelodyLogo
+              size={32}
+              useFaviconImg={true}
+              className="transition-transform duration-200 group-hover:scale-105"
+            />
             <span className="font-display font-black text-[#1a2e1c] text-xl tracking-tight">
               Melody
               <span className="text-[#2d6a4f]">.</span>
