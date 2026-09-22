@@ -33,8 +33,9 @@ export default function CustomerHome() {
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-emerald-950/60 to-transparent"></div>
 
-        <div className="relative max-w-7xl mx-auto px-4 py-16 sm:py-24">
-          <div className="max-w-3xl">
+        <div className="relative max-w-7xl mx-auto px-4 py-16 sm:py-24 flex flex-col lg:flex-row lg:items-center gap-12">
+          {/* ── Left: Text + Search ── */}
+          <div className="flex-1 min-w-0">
             <div className="inline-flex items-center gap-2 bg-emerald-800/60 backdrop-blur-md text-emerald-200 border border-emerald-700/50 text-xs font-semibold px-3.5 py-1.5 rounded-full mb-6">
               <Leaf size={14} className="text-emerald-400" />
               Direct Farm-to-Consumer Marketplace
@@ -68,8 +69,79 @@ export default function CustomerHome() {
               </Link>
             </div>
           </div>
+
+          {/* ── Right: Product showcase card ── */}
+          <div className="hidden lg:block shrink-0 w-[340px] relative mt-8 lg:mt-0">
+            {/* Glow behind card */}
+            <div className="absolute inset-0 rounded-3xl blur-2xl opacity-30" style={{ background: "radial-gradient(circle, #34d399 0%, transparent 70%)" }} />
+
+            {/* Main card */}
+            <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl overflow-hidden shadow-2xl">
+              {/* Farm image */}
+              <div className="relative">
+                <img
+                  src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=700&q=80"
+                  alt="Fresh produce"
+                  className="w-full h-44 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                {/* Certified badge */}
+                <div className="absolute top-3 right-3 bg-emerald-500/90 backdrop-blur-sm text-white text-[10px] font-extrabold px-2.5 py-1 rounded-lg flex items-center gap-1 shadow">
+                  <ShieldCheck size={11} /> CERTIFIED PARTNER
+                </div>
+                {/* Farm name on image */}
+                <div className="absolute bottom-3 left-3">
+                  <p className="text-white/70 text-[10px] font-semibold flex items-center gap-1">
+                    <MapPin size={10} /> Coorg, Karnataka
+                  </p>
+                  <p className="text-white font-extrabold text-sm leading-tight">Krishnamurthy Organic Farms</p>
+                </div>
+              </div>
+
+              {/* Product row */}
+              <div className="px-4 py-4 border-b border-white/10">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl">🍅</span>
+                    <div>
+                      <p className="text-white font-bold text-sm">Heirloom Field Tomatoes</p>
+                      <p className="text-emerald-300 text-[10px] font-semibold">Harvested today at 5:30 AM</p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-emerald-400 font-extrabold text-sm">₹45<span className="text-[10px] font-medium text-emerald-300/70"> /kg</span></p>
+                  </div>
+                </div>
+                <div className="mt-2 flex items-center justify-between text-[10px] text-white/60">
+                  <span>Farmer Realization:</span>
+                  <span className="text-emerald-400 font-bold">82% of retail price (₹37/kg)</span>
+                </div>
+              </div>
+
+              {/* Stats row */}
+              <div className="grid grid-cols-3 divide-x divide-white/10 px-0">
+                {[
+                  { val: "4.9 ★", label: "1,240+ Reviews" },
+                  { val: "< 24h", label: "Harvest to Door" },
+                  { val: "0%", label: "Synthetic Pesticides" },
+                ].map(({ val, label }) => (
+                  <div key={label} className="py-3 text-center">
+                    <p className="text-white font-extrabold text-sm">{val}</p>
+                    <p className="text-white/50 text-[9px] font-medium leading-tight mt-0.5">{label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Floating discount pill */}
+            <div className="absolute -top-4 -left-4 bg-amber-400 text-amber-900 rounded-full w-16 h-16 flex flex-col items-center justify-center shadow-xl border-4 border-emerald-950 font-black text-center leading-tight">
+              <span className="text-[9px] font-bold">SAVE</span>
+              <span className="text-lg">10%</span>
+            </div>
+          </div>
         </div>
       </section>
+
 
       {/* Feature Highlights */}
       <section className="max-w-7xl mx-auto px-4 py-8 -mt-6 relative z-10">
