@@ -19,7 +19,6 @@ const SORT_OPTIONS = [
   { label: "Price: Low to High", value: "price_asc" },
   { label: "Price: High to Low", value: "price_desc" },
   { label: "Newest Arrivals", value: "newest" },
-  { label: "Top Rated", value: "rated" },
 ];
 
 const CATEGORY_EMOJI: Record<string, string> = {
@@ -54,7 +53,6 @@ export default function ProductsPage() {
 
     if (sortBy === "price_asc") result = [...result].sort((a, b) => a.price - b.price);
     if (sortBy === "price_desc") result = [...result].sort((a, b) => b.price - a.price);
-    if (sortBy === "rated") result = [...result].sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
 
     return result;
   }, [products, selectedCategory, searchQuery, sortBy]);
