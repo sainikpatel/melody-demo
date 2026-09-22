@@ -17,7 +17,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col md:flex-row">
-      <nav className="md:w-64 md:fixed md:inset-y-0 md:pt-14 z-30 bg-slate-900 text-white border-r border-slate-800 hidden md:block">
+      <nav className="md:w-64 md:fixed md:inset-y-0 md:pt-0 z-30 bg-slate-900 text-white border-r border-slate-800 hidden md:block">
         <div className="p-6">
           <div className="font-bold text-xl text-purple-400 tracking-tight flex items-center gap-2 mb-8">
             <ShieldCheck size={24} /> Admin
@@ -43,7 +43,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       </nav>
       
       {/* Mobile nav header */}
-      <div className="md:hidden sticky top-14 z-30 bg-slate-900 text-white p-4 flex justify-between items-center">
+      <div className="md:hidden sticky top-0 z-30 bg-slate-900 text-white p-4 flex justify-between items-center">
         <div className="font-bold text-lg text-purple-400 tracking-tight flex items-center gap-2">
           <ShieldCheck size={20} /> Admin Panel
         </div>

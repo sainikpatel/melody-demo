@@ -1,23 +1,42 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
+
+const variants: Variants = {
+  initial: { opacity: 0, y: 16, filter: "blur(4px)" },
+  enter: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.35,
+      ease: [0.25, 0.46, 0.45, 0.94] as const,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: -10,
+    filter: "blur(4px)",
+    transition: {
+      duration: 0.2,
+      ease: "easeIn",
+    },
+  },
+};
 
 export default function PageTransition({ children }: { children: ReactNode }) {
   const pathname = usePathname();
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="wait" initial={false}>
       <motion.div
         key={pathname}
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -12 }}
-        transition={{
-          duration: 0.25,
-          ease: [0.25, 1, 0.5, 1], // Custom smooth cubic-bezier
-        }}
+        variants={variants}
+        initial="initial"
+        animate="enter"
+        exit="exit"
         className="flex-1 flex flex-col w-full"
       >
         {children}
